@@ -1,0 +1,15 @@
+html, body {
+  background-color: $bg-sky;
+}
+
+#grass {
+  bottom: 0;
+  position: fixed;
+}
+
+#sun {
+  border-radius: 50%;
+  background-color: $sun-color;
+  height: 8em;
+  width: 8em;
+}
