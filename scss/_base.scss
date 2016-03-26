@@ -1,7 +1,6 @@
-body {
+html, body {
   background: $bg-sky; 
-  padding:0;
-  margin:0;
+  overflow: hidden;
 }
 
 
@@ -12,7 +11,7 @@ body {
 
 .cloud1 {
   opacity: 0.8;
-  top: 3em;
+  top: 2em;
   width: 20em;
   z-index:100;
 
@@ -22,7 +21,7 @@ body {
 
 .cloud2 {
   opacity: 0.7;
-  top: 1em;
+  top: 0em;
   width: 20em;
   z-index: 200;
 
@@ -31,11 +30,11 @@ body {
 
 .cloud3 {
   opacity: 0.4;
-  top: 6em;
-  width: 25em;
-  z-index: 200;
+  top: 5em;
+  width: 21em;
+  z-index: 230;
 
-  @include animation(drift 30s linear 5s infinite backwards);
+  @include animation(drift 20s linear 5s infinite backwards);
 }
 
 #grass {
@@ -46,18 +45,31 @@ body {
 #mountains {
   bottom: 0;
   position: fixed;
+  width: 100%;
 }
 
-#sun {
+.sun-outer {
+  bottom: -1.5em;
+  position: fixed;
+  width: 90%;
+  @include animation(arc 100s linear infinite);
+}
+
+.sun-inner {
   border-radius: 50%;
   background-color: $sun-color;
-  height: 7em;
-  width: 7em;
-  margin: 2em;
+  display: inline-block;
+  padding: 3em;
 }
 
 /* Animations */
-@include keyframes(drift) {
-  from {-webkit-transform: translate(-500px);}
-  to {-webkit-transform: translate(1350px);}
+@include keyframes(drift) { 
+  from { transform: translate(-24em); }
+  to { transform: translate(80em); }
 }
+
+@include keyframes(arc) {
+  0% { transform: rotate(-360deg); }
+  100% { transform: rotate(0deg); }
+}
+

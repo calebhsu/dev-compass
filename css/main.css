@@ -54,10 +54,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-body {
+html, body {
   background: #aff0ff;
-  padding: 0;
-  margin: 0;
+  overflow: hidden;
 }
 
 /* Drifting Clouds */
@@ -67,7 +66,7 @@ body {
 
 .cloud1 {
   opacity: 0.8;
-  top: 3em;
+  top: 2em;
   width: 20em;
   z-index: 100;
   -webkit-animation: drift 25s linear infinite;
@@ -78,7 +77,7 @@ body {
 
 .cloud2 {
   opacity: 0.7;
-  top: 1em;
+  top: 0em;
   width: 20em;
   z-index: 200;
   -webkit-animation: drift 35s linear 10s infinite backwards;
@@ -89,13 +88,13 @@ body {
 
 .cloud3 {
   opacity: 0.4;
-  top: 6em;
-  width: 25em;
-  z-index: 200;
-  -webkit-animation: drift 30s linear 5s infinite backwards;
-  -moz-animation: drift 30s linear 5s infinite backwards;
-  -o-animation: drift 30s linear 5s infinite backwards;
-  animation: drift 30s linear 5s infinite backwards;
+  top: 5em;
+  width: 21em;
+  z-index: 230;
+  -webkit-animation: drift 20s linear 5s infinite backwards;
+  -moz-animation: drift 20s linear 5s infinite backwards;
+  -o-animation: drift 20s linear 5s infinite backwards;
+  animation: drift 20s linear 5s infinite backwards;
 }
 
 #grass {
@@ -106,46 +105,88 @@ body {
 #mountains {
   bottom: 0;
   position: fixed;
+  width: 100%;
 }
 
-#sun {
+.sun-outer {
+  bottom: -1.5em;
+  position: fixed;
+  width: 90%;
+  -webkit-animation: arc 100s linear infinite;
+  -moz-animation: arc 100s linear infinite;
+  -o-animation: arc 100s linear infinite;
+  animation: arc 100s linear infinite;
+}
+
+.sun-inner {
   border-radius: 50%;
   background-color: #ffef18;
-  height: 7em;
-  width: 7em;
-  margin: 2em;
+  display: inline-block;
+  padding: 3em;
 }
 
 /* Animations */
 @-webkit-keyframes drift {
   from {
-    -webkit-transform: translate(-500px);
+    transform: translate(-24em);
   }
   to {
-    -webkit-transform: translate(1350px);
+    transform: translate(80em);
   }
 }
 @-moz-keyframes drift {
   from {
-    -webkit-transform: translate(-500px);
+    transform: translate(-24em);
   }
   to {
-    -webkit-transform: translate(1350px);
+    transform: translate(80em);
   }
 }
 @-o-keyframes drift {
   from {
-    -webkit-transform: translate(-500px);
+    transform: translate(-24em);
   }
   to {
-    -webkit-transform: translate(1350px);
+    transform: translate(80em);
   }
 }
 @keyframes drift {
   from {
-    -webkit-transform: translate(-500px);
+    transform: translate(-24em);
   }
   to {
-    -webkit-transform: translate(1350px);
+    transform: translate(80em);
+  }
+}
+@-webkit-keyframes arc {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@-moz-keyframes arc {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@-o-keyframes arc {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes arc {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
