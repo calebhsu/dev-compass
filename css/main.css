@@ -54,19 +54,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-html, body {
-  background-color: #aff0ff;
+body {
+  background: #aff0ff;
+  padding: 0;
+  margin: 0;
 }
 
-#cloud {
+/* Drifting Clouds */
+.cloud {
+  position: absolute;
+}
+
+.cloud1 {
+  opacity: 0.8;
+  top: 3em;
   width: 20em;
-  -webkit-animation: drift 2s ease-in;
-  -moz-animation: drift 2s ease-in;
-  -o-animation: drift 2s ease-in;
-  animation: drift 2s ease-in;
+  z-index: 100;
+  -webkit-animation: drift 25s linear infinite;
+  -moz-animation: drift 25s linear infinite;
+  -o-animation: drift 25s linear infinite;
+  animation: drift 25s linear infinite;
+}
+
+.cloud2 {
+  opacity: 0.7;
+  top: 1em;
+  width: 20em;
+  z-index: 200;
+  -webkit-animation: drift 35s linear 10s infinite backwards;
+  -moz-animation: drift 35s linear 10s infinite backwards;
+  -o-animation: drift 35s linear 10s infinite backwards;
+  animation: drift 35s linear 10s infinite backwards;
+}
+
+.cloud3 {
+  opacity: 0.4;
+  top: 6em;
+  width: 25em;
+  z-index: 200;
+  -webkit-animation: drift 30s linear 5s infinite backwards;
+  -moz-animation: drift 30s linear 5s infinite backwards;
+  -o-animation: drift 30s linear 5s infinite backwards;
+  animation: drift 30s linear 5s infinite backwards;
 }
 
 #grass {
+  bottom: -1em;
+  position: fixed;
+}
+
+#mountains {
   bottom: 0;
   position: fixed;
 }
@@ -79,35 +116,36 @@ html, body {
   margin: 2em;
 }
 
+/* Animations */
 @-webkit-keyframes drift {
   from {
-    -webkit-transform: translateX(0px);
+    -webkit-transform: translate(-500px);
   }
   to {
-    -webkit-transform: translateX(400px);
+    -webkit-transform: translate(1350px);
   }
 }
 @-moz-keyframes drift {
   from {
-    -webkit-transform: translateX(0px);
+    -webkit-transform: translate(-500px);
   }
   to {
-    -webkit-transform: translateX(400px);
+    -webkit-transform: translate(1350px);
   }
 }
 @-o-keyframes drift {
   from {
-    -webkit-transform: translateX(0px);
+    -webkit-transform: translate(-500px);
   }
   to {
-    -webkit-transform: translateX(400px);
+    -webkit-transform: translate(1350px);
   }
 }
 @keyframes drift {
   from {
-    -webkit-transform: translateX(0px);
+    -webkit-transform: translate(-500px);
   }
   to {
-    -webkit-transform: translateX(400px);
+    -webkit-transform: translate(1350px);
   }
 }
