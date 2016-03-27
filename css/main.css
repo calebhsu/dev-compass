@@ -62,6 +62,10 @@ html, body {
   animation: day-to-night 100s ease-in-out infinite;
 }
 
+#music {
+  visibility: hidden;
+}
+
 /* Drifting Clouds */
 .cloud {
   position: absolute;
@@ -177,14 +181,38 @@ html, body {
   padding: 3em;
 }
 
-#totoro {
+/* Totoros */
+.totoro {
   bottom: 0;
   position: fixed;
+}
+
+.t-fast {
+  width: 32em;
   z-index: 5;
-  -webkit-animation: totoro 20s linear infinite;
-  -moz-animation: totoro 20s linear infinite;
-  -o-animation: totoro 20s linear infinite;
-  animation: totoro 20s linear infinite;
+  -webkit-animation: totoro-left 25s linear 5s infinite backwards;
+  -moz-animation: totoro-left 25s linear 5s infinite backwards;
+  -o-animation: totoro-left 25s linear 5s infinite backwards;
+  animation: totoro-left 25s linear 5s infinite backwards;
+}
+
+.t-medium {
+  width: 10em;
+  z-index: 3;
+  -webkit-animation: totoro-right 25s linear 10s infinite backwards;
+  -moz-animation: totoro-right 25s linear 10s infinite backwards;
+  -o-animation: totoro-right 25s linear 10s infinite backwards;
+  animation: totoro-right 25s linear 10s infinite backwards;
+}
+
+.t-slow {
+  bottom: -1.2em;
+  width: 10em;
+  z-index: 15;
+  -webkit-animation: totoro-left 50s linear 15s infinite backwards;
+  -moz-animation: totoro-left 50s linear 15s infinite backwards;
+  -o-animation: totoro-left 50s linear 15s infinite backwards;
+  animation: totoro-left 50s linear 15s infinite backwards;
 }
 
 /* Animations */
@@ -220,36 +248,68 @@ html, body {
     transform: translate(90em);
   }
 }
-@-webkit-keyframes totoro {
+@-webkit-keyframes totoro-left {
   from {
-    transform: translate(90em);
+    transform: translate(95em);
   }
   to {
     transform: translate(-24em);
   }
 }
-@-moz-keyframes totoro {
+@-moz-keyframes totoro-left {
   from {
-    transform: translate(90em);
+    transform: translate(95em);
   }
   to {
     transform: translate(-24em);
   }
 }
-@-o-keyframes totoro {
+@-o-keyframes totoro-left {
   from {
-    transform: translate(90em);
+    transform: translate(95em);
   }
   to {
     transform: translate(-24em);
   }
 }
-@keyframes totoro {
+@keyframes totoro-left {
   from {
-    transform: translate(90em);
+    transform: translate(95em);
   }
   to {
     transform: translate(-24em);
+  }
+}
+@-webkit-keyframes totoro-right {
+  from {
+    transform: translate(-24em);
+  }
+  to {
+    transform: translate(95em);
+  }
+}
+@-moz-keyframes totoro-right {
+  from {
+    transform: translate(-24em);
+  }
+  to {
+    transform: translate(95em);
+  }
+}
+@-o-keyframes totoro-right {
+  from {
+    transform: translate(-24em);
+  }
+  to {
+    transform: translate(95em);
+  }
+}
+@keyframes totoro-right {
+  from {
+    transform: translate(-24em);
+  }
+  to {
+    transform: translate(95em);
   }
 }
 @-webkit-keyframes arc {

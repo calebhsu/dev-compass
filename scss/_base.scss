@@ -4,6 +4,10 @@ html, body {
   @include animation(day-to-night 100s ease-in-out infinite);
 }
 
+#music {
+  visibility: hidden;
+}
+
 /* Drifting Clouds */
 .cloud {
   position: absolute;
@@ -104,12 +108,29 @@ html, body {
   padding: 3em;
 }
 
-#totoro {
+/* Totoros */
+.totoro {
   bottom: 0;
   position: fixed;
-  z-index: 5;
+}
 
-  @include animation(totoro 20s linear infinite);
+.t-fast {
+  width: 32em;
+  z-index: 5;
+  @include animation(totoro-left 25s linear 5s infinite backwards);
+}
+
+.t-medium {
+  width: 10em;
+  z-index: 3;
+  @include animation(totoro-right 25s linear 10s infinite backwards);
+}
+
+.t-slow {
+  bottom: -1.2em;
+  width: 10em;
+  z-index: 15;
+  @include animation(totoro-left 50s linear 15s infinite backwards);
 }
 
 /* Animations */
@@ -118,9 +139,14 @@ html, body {
   to { transform: translate(90em); }
 }
 
-@include keyframes(totoro) { 
-  from { transform: translate(90em); }
+@include keyframes(totoro-left) { 
+  from { transform: translate(95em); }
   to { transform: translate(-24em); }
+}
+
+@include keyframes(totoro-right) { 
+  from { transform: translate(-24em); }
+  to { transform: translate(95em); }
 }
 
 @include keyframes(arc) {
