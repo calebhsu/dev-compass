@@ -55,8 +55,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 html, body {
-  background: #aff0ff;
   overflow: hidden;
+  -webkit-animation: day-to-night 100s ease-in-out infinite;
+  -moz-animation: day-to-night 100s ease-in-out infinite;
+  -o-animation: day-to-night 100s ease-in-out infinite;
+  animation: day-to-night 100s ease-in-out infinite;
 }
 
 /* Drifting Clouds */
@@ -97,17 +100,65 @@ html, body {
   animation: drift 20s linear 5s infinite backwards;
 }
 
+/* Foreground & Background */
 #grass {
   bottom: -1em;
   position: fixed;
+  z-index: 1;
 }
 
 #mountains {
   bottom: 0;
   position: fixed;
   width: 100%;
+  z-index: 0;
 }
 
+/* Moon */
+.moon-outer {
+  bottom: -1.5em;
+  position: fixed;
+  width: 90%;
+  -webkit-animation: arc 100s linear 40s infinite;
+  -moz-animation: arc 100s linear 40s infinite;
+  -o-animation: arc 100s linear 40s infinite;
+  animation: arc 100s linear 40s infinite;
+}
+
+.moon-inner {
+  border-radius: 50%;
+  display: inline-block;
+  padding: 2em;
+  -webkit-animation: moon-fade 100s linear infinite;
+  -moz-animation: moon-fade 100s linear infinite;
+  -o-animation: moon-fade 100s linear infinite;
+  animation: moon-fade 100s linear infinite;
+}
+
+#overlay {
+  height: 100%;
+  opacity: 0.1;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  -webkit-animation: day-to-night 100s linear infinite;
+  -moz-animation: day-to-night 100s linear infinite;
+  -o-animation: day-to-night 100s linear infinite;
+  animation: day-to-night 100s linear infinite;
+}
+
+#stars {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: -2;
+  -webkit-animation: star-fade 100s linear infinite;
+  -moz-animation: star-fade 100s linear infinite;
+  -o-animation: star-fade 100s linear infinite;
+  animation: star-fade 100s linear infinite;
+}
+
+/* Sun */
 .sun-outer {
   bottom: -1.5em;
   position: fixed;
@@ -119,8 +170,8 @@ html, body {
 }
 
 .sun-inner {
-  border-radius: 50%;
   background-color: #ffef18;
+  border-radius: 50%;
   display: inline-block;
   padding: 3em;
 }
@@ -131,7 +182,7 @@ html, body {
     transform: translate(-24em);
   }
   to {
-    transform: translate(80em);
+    transform: translate(90em);
   }
 }
 @-moz-keyframes drift {
@@ -139,7 +190,7 @@ html, body {
     transform: translate(-24em);
   }
   to {
-    transform: translate(80em);
+    transform: translate(90em);
   }
 }
 @-o-keyframes drift {
@@ -147,7 +198,7 @@ html, body {
     transform: translate(-24em);
   }
   to {
-    transform: translate(80em);
+    transform: translate(90em);
   }
 }
 @keyframes drift {
@@ -155,7 +206,7 @@ html, body {
     transform: translate(-24em);
   }
   to {
-    transform: translate(80em);
+    transform: translate(90em);
   }
 }
 @-webkit-keyframes arc {
@@ -188,5 +239,221 @@ html, body {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes day-to-night {
+  0% {
+    background-color: #2d658a;
+  }
+  8% {
+    background-color: #f0a57c;
+  }
+  13% {
+    background-color: #aff0ff;
+  }
+  35% {
+    background-color: #5abfd1;
+  }
+  41% {
+    background-color: #5abfd1;
+  }
+  45% {
+    background-color: #f4b34f;
+  }
+  48% {
+    background-color: #2d658a;
+  }
+  70% {
+    background-color: #1e1546;
+  }
+  100% {
+    background-color: #2d658a;
+  }
+}
+@-moz-keyframes day-to-night {
+  0% {
+    background-color: #2d658a;
+  }
+  8% {
+    background-color: #f0a57c;
+  }
+  13% {
+    background-color: #aff0ff;
+  }
+  35% {
+    background-color: #5abfd1;
+  }
+  41% {
+    background-color: #5abfd1;
+  }
+  45% {
+    background-color: #f4b34f;
+  }
+  48% {
+    background-color: #2d658a;
+  }
+  70% {
+    background-color: #1e1546;
+  }
+  100% {
+    background-color: #2d658a;
+  }
+}
+@-o-keyframes day-to-night {
+  0% {
+    background-color: #2d658a;
+  }
+  8% {
+    background-color: #f0a57c;
+  }
+  13% {
+    background-color: #aff0ff;
+  }
+  35% {
+    background-color: #5abfd1;
+  }
+  41% {
+    background-color: #5abfd1;
+  }
+  45% {
+    background-color: #f4b34f;
+  }
+  48% {
+    background-color: #2d658a;
+  }
+  70% {
+    background-color: #1e1546;
+  }
+  100% {
+    background-color: #2d658a;
+  }
+}
+@keyframes day-to-night {
+  0% {
+    background-color: #2d658a;
+  }
+  8% {
+    background-color: #f0a57c;
+  }
+  13% {
+    background-color: #aff0ff;
+  }
+  35% {
+    background-color: #5abfd1;
+  }
+  41% {
+    background-color: #5abfd1;
+  }
+  45% {
+    background-color: #f4b34f;
+  }
+  48% {
+    background-color: #2d658a;
+  }
+  70% {
+    background-color: #1e1546;
+  }
+  100% {
+    background-color: #2d658a;
+  }
+}
+@-webkit-keyframes moon-fade {
+  0% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  20% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+@-moz-keyframes moon-fade {
+  0% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  20% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+@-o-keyframes moon-fade {
+  0% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  20% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+@keyframes moon-fade {
+  0% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  20% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+@-webkit-keyframes star-fade {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@-moz-keyframes star-fade {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@-o-keyframes star-fade {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@keyframes star-fade {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
   }
 }

@@ -1,8 +1,8 @@
 html, body {
-  background: $bg-sky; 
   overflow: hidden;
-}
 
+  @include animation(day-to-night 100s ease-in-out infinite);
+}
 
 /* Drifting Clouds */
 .cloud {
@@ -13,7 +13,7 @@ html, body {
   opacity: 0.8;
   top: 2em;
   width: 20em;
-  z-index:100;
+  z-index: 100;
 
   // shorthand: name duration timing-function delay iteration-count direction fill-mode
   @include animation(drift 25s linear infinite);
@@ -37,17 +37,58 @@ html, body {
   @include animation(drift 20s linear 5s infinite backwards);
 }
 
+
+/* Foreground & Background */
 #grass {
   bottom: -1em;
   position: fixed;
+  z-index: 1;
 }
 
 #mountains {
   bottom: 0;
   position: fixed;
   width: 100%;
+  z-index: 0;
 }
 
+/* Moon */
+.moon-outer {
+  bottom: -1.5em;
+  position: fixed;
+  width: 90%;
+
+  @include animation(arc 100s linear 40s infinite);
+}
+
+.moon-inner {
+  border-radius: 50%;
+  display: inline-block;
+  padding: 2em;
+
+  @include animation(moon-fade 100s linear infinite);
+}
+
+#overlay {
+  height: 100%;
+  opacity: 0.1;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  
+  @include animation(day-to-night 100s linear infinite);
+}
+
+#stars {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: -2;
+
+  @include animation(star-fade 100s linear infinite);
+}
+
+/* Sun */
 .sun-outer {
   bottom: -1.5em;
   position: fixed;
@@ -56,16 +97,17 @@ html, body {
 }
 
 .sun-inner {
-  border-radius: 50%;
   background-color: $sun-color;
+  border-radius: 50%;
   display: inline-block;
   padding: 3em;
 }
 
+
 /* Animations */
 @include keyframes(drift) { 
   from { transform: translate(-24em); }
-  to { transform: translate(80em); }
+  to { transform: translate(90em); }
 }
 
 @include keyframes(arc) {
@@ -73,3 +115,27 @@ html, body {
   100% { transform: rotate(0deg); }
 }
 
+@include keyframes(day-to-night) {
+  0% { background-color: $bg-evening; }
+  8% { background-color: $bg-sunrise; }
+  13% { background-color: $bg-morning; }
+  35% { background-color: $bg-afternoon; }
+  41% { background-color: $bg-afternoon; }
+  45% { background-color: $bg-sunset; }
+  48% { background-color: $bg-evening; }
+  70% { background-color: $bg-night; }
+  100% { background-color: $bg-evening; }
+}
+
+@include keyframes(moon-fade) {
+  0% { background-color: rgba(255, 255, 255, 0.5); }
+  20% { background-color: rgba(255, 255, 255, 1); }
+  100% { background-color: rgba(255, 255, 255, 0.5); }
+}
+
+@include keyframes(star-fade) {
+  0% { opacity: 0; }
+  45% { opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
