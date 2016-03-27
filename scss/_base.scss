@@ -42,7 +42,7 @@ html, body {
 #grass {
   bottom: -1em;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
 }
 
 #mountains {
@@ -65,6 +65,7 @@ html, body {
   border-radius: 50%;
   display: inline-block;
   padding: 2em;
+  z-index: -1;
 
   @include animation(moon-fade 100s linear infinite);
 }
@@ -82,8 +83,8 @@ html, body {
 #stars {
   top: 0;
   position: fixed;
-  width: 100%;
-  z-index: -2;
+  width: 120%;
+  z-index: -100;
 
   @include animation(star-fade 100s linear infinite);
 }
@@ -103,11 +104,23 @@ html, body {
   padding: 3em;
 }
 
+#totoro {
+  bottom: 0;
+  position: fixed;
+  z-index: 5;
+
+  @include animation(totoro 20s linear infinite);
+}
 
 /* Animations */
 @include keyframes(drift) { 
   from { transform: translate(-24em); }
   to { transform: translate(90em); }
+}
+
+@include keyframes(totoro) { 
+  from { transform: translate(90em); }
+  to { transform: translate(-24em); }
 }
 
 @include keyframes(arc) {
@@ -128,14 +141,14 @@ html, body {
 }
 
 @include keyframes(moon-fade) {
-  0% { background-color: rgba(255, 255, 255, 0.5); }
+  0% { background-color: rgba(255, 255, 255, 0.8); }
   20% { background-color: rgba(255, 255, 255, 1); }
-  100% { background-color: rgba(255, 255, 255, 0.5); }
+  100% { background-color: rgba(255, 255, 255, 0.8); }
 }
 
 @include keyframes(star-fade) {
   0% { opacity: 0; }
   45% { opacity: 0; }
-  50% { opacity: 0.8; }
-  100% { opacity: 0.5; }
+  55% { opacity: 0.5; }
+  100% { opacity: 0.2; }
 }

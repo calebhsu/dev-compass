@@ -104,7 +104,7 @@ html, body {
 #grass {
   bottom: -1em;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
 }
 
 #mountains {
@@ -129,6 +129,7 @@ html, body {
   border-radius: 50%;
   display: inline-block;
   padding: 2em;
+  z-index: -1;
   -webkit-animation: moon-fade 100s linear infinite;
   -moz-animation: moon-fade 100s linear infinite;
   -o-animation: moon-fade 100s linear infinite;
@@ -150,8 +151,8 @@ html, body {
 #stars {
   top: 0;
   position: fixed;
-  width: 100%;
-  z-index: -2;
+  width: 120%;
+  z-index: -100;
   -webkit-animation: star-fade 100s linear infinite;
   -moz-animation: star-fade 100s linear infinite;
   -o-animation: star-fade 100s linear infinite;
@@ -174,6 +175,16 @@ html, body {
   border-radius: 50%;
   display: inline-block;
   padding: 3em;
+}
+
+#totoro {
+  bottom: 0;
+  position: fixed;
+  z-index: 5;
+  -webkit-animation: totoro 20s linear infinite;
+  -moz-animation: totoro 20s linear infinite;
+  -o-animation: totoro 20s linear infinite;
+  animation: totoro 20s linear infinite;
 }
 
 /* Animations */
@@ -207,6 +218,38 @@ html, body {
   }
   to {
     transform: translate(90em);
+  }
+}
+@-webkit-keyframes totoro {
+  from {
+    transform: translate(90em);
+  }
+  to {
+    transform: translate(-24em);
+  }
+}
+@-moz-keyframes totoro {
+  from {
+    transform: translate(90em);
+  }
+  to {
+    transform: translate(-24em);
+  }
+}
+@-o-keyframes totoro {
+  from {
+    transform: translate(90em);
+  }
+  to {
+    transform: translate(-24em);
+  }
+}
+@keyframes totoro {
+  from {
+    transform: translate(90em);
+  }
+  to {
+    transform: translate(-24em);
   }
 }
 @-webkit-keyframes arc {
@@ -359,46 +402,46 @@ html, body {
 }
 @-webkit-keyframes moon-fade {
   0% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
   20% {
     background-color: white;
   }
   100% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }
 @-moz-keyframes moon-fade {
   0% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
   20% {
     background-color: white;
   }
   100% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }
 @-o-keyframes moon-fade {
   0% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
   20% {
     background-color: white;
   }
   100% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }
 @keyframes moon-fade {
   0% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
   20% {
     background-color: white;
   }
   100% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }
 @-webkit-keyframes star-fade {
@@ -408,11 +451,11 @@ html, body {
   45% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.8;
+  55% {
+    opacity: 0.5;
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
 }
 @-moz-keyframes star-fade {
@@ -422,11 +465,11 @@ html, body {
   45% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.8;
+  55% {
+    opacity: 0.5;
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
 }
 @-o-keyframes star-fade {
@@ -436,11 +479,11 @@ html, body {
   45% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.8;
+  55% {
+    opacity: 0.5;
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
 }
 @keyframes star-fade {
@@ -450,10 +493,10 @@ html, body {
   45% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.8;
+  55% {
+    opacity: 0.5;
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
 }
